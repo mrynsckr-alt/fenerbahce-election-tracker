@@ -266,7 +266,16 @@ const TOTAL = 45;
 const DB_PATH = "fenerbahce-2026/boxes";
 const SETTINGS_PATH = "fenerbahce-2026/settings";
 const params = new URLSearchParams(window.location.search);
-const IS_ADMIN = params.get("admin") === "1";
+
+const ADMIN_PASSWORD = "jo8BdLrdWea3@";
+const adminParam = params.get("admin");
+let IS_ADMIN = false;
+
+if(adminParam === "1"){
+  const enteredPassword = prompt("Yönetici şifresi:");
+  IS_ADMIN = enteredPassword === ADMIN_PASSWORD;
+}
+
 
 let boxes = [];
 let validVotes = 0;
